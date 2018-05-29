@@ -29,7 +29,7 @@ encode_package(_Repository, Signature, #{releases := Releases}) ->
                  Release3 = maps:update_with(checksum, fun decode16/1, Release2),
                  Release3
                end, Releases),
-    encode(#{releases => Releases2}, hex_pb_package, 'Package', Signature).
+    encode(#{releases => Releases2}, hex_pb_packages, 'Package', Signature).
 
 decode_package(Body) ->
     decode(Body, hex_pb_packages, 'Package').
